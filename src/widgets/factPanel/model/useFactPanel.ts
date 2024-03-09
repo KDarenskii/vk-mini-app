@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 
-import { FactService } from 'entities';
+import { FactService } from 'entities/fact';
 
 export const useFactPanel = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);

@@ -1,4 +1,4 @@
-import { routes } from 'shared';
+import { routes } from 'shared/constants';
 
 interface NavPanel {
   id: string;

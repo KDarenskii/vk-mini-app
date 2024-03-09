@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 
-import { NavSidebar } from 'widgets';
+import { NavSidebar } from 'widgets/navSideBar';
 
 import {
   PanelHeader,

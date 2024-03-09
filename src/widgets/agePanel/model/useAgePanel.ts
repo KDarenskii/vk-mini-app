@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Age, AgeService } from 'entities';
+import { Age, AgeService } from 'entities/age';
 
 import { queryClient } from 'shared/config';
 import { isCancelError } from 'shared/helpers';
