@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 
-import { Cell, Group, Panel, PanelHeader, usePlatform } from '@vkontakte/vkui';
+import { navList } from 'shared/config';
 
-import { panelsList } from '../constants/panelsList';
+import { Cell, Group, Panel, PanelHeader, usePlatform } from '@vkontakte/vkui';
 
 export const NavSidebar: FC = () => {
   const { pathname } = useLocation();
@@ -16,9 +16,13 @@ export const NavSidebar: FC = () => {
     <Panel>
       {!isVKCOM && <PanelHeader>VK Mini App</PanelHeader>}
       <Group>
-        {panelsList.map(({ id, label, path }) => (
+        {navList.map(({ id, label, path, Icon }) => (
           <Link to={path} key={id} style={{ textDecoration: 'none' }}>
-            <Cell hovered={pathname.includes(path)} onClick={() => {}}>
+            <Cell
+              hovered={pathname.includes(path)}
+              onClick={() => {}}
+              before={Icon}
+            >
               {label}
             </Cell>
           </Link>
