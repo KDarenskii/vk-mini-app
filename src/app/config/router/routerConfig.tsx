@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 import { AgePage } from 'pages/agePage';
 import { FactPage } from 'pages/factPage';
@@ -7,17 +7,16 @@ import { routes } from 'shared/constants';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    children: [
-      {
-        path: routes.age.path,
-        element: <AgePage />,
-      },
-      {
-        path: routes.fact.path,
-        element: <FactPage />,
-      },
-    ],
+    path: routes.root.path,
+    element: <Navigate to={routes.fact.path} />,
+  },
+  {
+    path: routes.fact.path,
+    element: <FactPage />,
+  },
+  {
+    path: routes.age.path,
+    element: <AgePage />,
   },
   {
     path: '*',
