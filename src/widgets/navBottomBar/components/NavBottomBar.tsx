@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { navList } from 'shared/config';
 
