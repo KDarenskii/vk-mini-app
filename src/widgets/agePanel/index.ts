@@ -1,1 +1,1 @@
-export { AgePanel } from './AgePanel';
+export { AgePanel } from './components/AgePanel';
