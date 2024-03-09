@@ -11,18 +11,28 @@ import {
   Placeholder,
   Separator,
   View,
+  useAdaptivityConditionalRender,
 } from '@vkontakte/vkui';
 
 import { useAgePanel } from '../model/useAgePanel';
 
 export const AgePanel: FC = () => {
+  const { viewWidth } = useAdaptivityConditionalRender();
+
   const { age, getAgeByName, isError, isLoading, debouncedGetAge } =
     useAgePanel();
 
   return (
     <View activePanel="age">
       <Panel id="age">
-        <PanelHeader></PanelHeader>
+        {viewWidth.tabletMinus && (
+          <PanelHeader className={viewWidth.tabletMinus.className}>
+            VK Mini App
+          </PanelHeader>
+        )}
+        {viewWidth.tabletPlus && (
+          <PanelHeader className={viewWidth.tabletPlus.className} />
+        )}
         <Group>
           <Placeholder header="А сколько ему лет...?">
             С помощью секретных технологий мы можем определить возраст, узнав

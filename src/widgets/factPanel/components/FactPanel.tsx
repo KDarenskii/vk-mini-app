@@ -9,17 +9,27 @@ import {
   Placeholder,
   Separator,
   View,
+  useAdaptivityConditionalRender,
 } from '@vkontakte/vkui';
 
 import { useFactPanel } from '../model/useFactPanel';
 
 export const FactPanel: FC = () => {
+  const { viewWidth } = useAdaptivityConditionalRender();
+
   const { getFact, isError, isFetching } = useFactPanel();
 
   return (
     <View activePanel="fact">
       <Panel id="fact">
-        <PanelHeader></PanelHeader>
+        {viewWidth.tabletMinus && (
+          <PanelHeader className={viewWidth.tabletMinus.className}>
+            VK Mini App
+          </PanelHeader>
+        )}
+        {viewWidth.tabletPlus && (
+          <PanelHeader className={viewWidth.tabletPlus.className} />
+        )}
         <Group>
           <Placeholder header="А вы знали...?">
             Мы собрали для вас множество различных фактов о кошках
