@@ -1,5 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, ReactElement } from 'react';
 
+import { NavBottomBar } from 'widgets/navBottomBar';
 import { NavSidebar } from 'widgets/navSideBar';
 
 import {
@@ -10,7 +11,11 @@ import {
   usePlatform,
 } from '@vkontakte/vkui';
 
-export const SidebarLayout: FC<PropsWithChildren> = ({ children }) => {
+interface SidebarLayoutProps {
+  children: ReactElement;
+}
+
+export const SidebarLayout: FC<SidebarLayoutProps> = ({ children }) => {
   const platform = usePlatform();
   const { viewWidth } = useAdaptivityConditionalRender();
 
@@ -31,6 +36,7 @@ export const SidebarLayout: FC<PropsWithChildren> = ({ children }) => {
       )}
       <SplitCol width="100%" maxWidth="600px" stretchedOnMobile autoSpaced>
         {children}
+        <NavBottomBar />
       </SplitCol>
     </SplitLayout>
   );
