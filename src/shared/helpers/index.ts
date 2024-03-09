@@ -1,0 +1,1 @@
+export { isCancelError } from './isCancelError';
