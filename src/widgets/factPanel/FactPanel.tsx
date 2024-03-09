@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { FactForm } from 'features';
+
 import {
   Group,
   Panel,
@@ -9,7 +11,11 @@ import {
   View,
 } from '@vkontakte/vkui';
 
+import { useFactPanel } from './model';
+
 export const FactPanel: FC = () => {
+  const { getFact, isError, isFetching } = useFactPanel();
+
   return (
     <View activePanel="fact">
       <Panel id="fact">
@@ -19,7 +25,11 @@ export const FactPanel: FC = () => {
             Мы собрали для вас множество различных фактов о кошках
           </Placeholder>
           <Separator />
-          <Placeholder>Введите адрес страницы в поле поиска</Placeholder>
+          <FactForm
+            onSubmit={getFact}
+            isDisabled={isFetching}
+            isError={isError}
+          />
         </Group>
       </Panel>
     </View>
