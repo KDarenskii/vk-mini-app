@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { AgePanel } from 'widgets';
+import { AgePanel } from 'widgets/agePanel';
 
-import { SidebarLayout } from './layouts';
+import { SidebarLayout } from '../layouts/SidebarLayout';
 
 export const AgePage: FC = () => {
   return (

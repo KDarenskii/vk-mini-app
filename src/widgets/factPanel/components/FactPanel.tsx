@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { FactForm } from 'features';
+import { FactForm } from 'features/factForm';
 
 import {
   Group,
@@ -11,7 +11,7 @@ import {
   View,
 } from '@vkontakte/vkui';
 
-import { useFactPanel } from './model';
+import { useFactPanel } from '../model/useFactPanel';
 
 export const FactPanel: FC = () => {
   const { getFact, isError, isFetching } = useFactPanel();

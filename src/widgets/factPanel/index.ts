@@ -1,1 +1,1 @@
-export { FactPanel } from './FactPanel';
+export { FactPanel } from './components/FactPanel';

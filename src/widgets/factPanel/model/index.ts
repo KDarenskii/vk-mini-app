@@ -1,1 +1,0 @@
-export { useFactPanel } from './useFactPanel';

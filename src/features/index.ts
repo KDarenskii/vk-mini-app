@@ -1,1 +1,0 @@
-export { FactForm } from './factForm';

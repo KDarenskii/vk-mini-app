@@ -1,2 +1,2 @@
-export type { Fact } from './types';
-export { FactService, factApi } from './api';
+export type { Fact } from './types/fact';
+export { FactService } from './api/FactService';

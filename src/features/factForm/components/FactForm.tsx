@@ -1,10 +1,10 @@
 import { FC, FormEvent } from 'react';
 
-import { Fact } from 'entities';
+import { Fact } from 'entities/fact';
 
 import { Button, FormItem, Input } from '@vkontakte/vkui';
 
-import { useFactForm } from './model';
+import { useFactForm } from '../model/useFactForm';
 
 interface FactFormProps {
   onSubmit: () => Promise<Fact | undefined>;

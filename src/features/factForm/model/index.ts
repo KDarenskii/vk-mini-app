@@ -1,1 +1,0 @@
-export { useFactForm } from './useFactForm';

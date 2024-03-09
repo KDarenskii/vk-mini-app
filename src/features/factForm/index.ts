@@ -1,1 +1,1 @@
-export { FactForm } from './FactForm';
+export { FactForm } from './components/FactForm';

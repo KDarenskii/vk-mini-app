@@ -1,8 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { AgePage, FactPage } from 'pages';
+import { AgePage } from 'pages/agePage';
+import { FactPage } from 'pages/factPage';
 
-import { routes } from 'shared';
+import { routes } from 'shared/constants';
 
 export const router = createBrowserRouter([
   {
