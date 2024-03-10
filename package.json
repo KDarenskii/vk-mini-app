@@ -7,15 +7,21 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "tsc && vite build --base=/vk-mini-app/",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy:gh": "gh-pages -d dist",
+    "dev:vk": "cross-env PORT=10888 HTTPS=true vite --port 10888",
+    "tunnel": "vk-tunnel --insecure=1 --http-protocol=https --ws-protocol=wss --host=0.0.0.0 --port=10888 app_id=51873253",
+    "deploy:vk": "tsc && vite build && vk-miniapps-deploy",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@tanstack/react-query": "^5.25.0",
     "@vkontakte/icons": "^2.101.0",
+    "@vkontakte/vk-bridge": "^2.14.1",
+    "@vkontakte/vk-miniapps-deploy": "^0.1.6",
+    "@vkontakte/vk-tunnel": "^0.1.4",
     "@vkontakte/vkui": "^6.0.1",
     "axios": "^1.6.7",
     "react": "^18.2.0",
@@ -30,6 +36,7 @@
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
