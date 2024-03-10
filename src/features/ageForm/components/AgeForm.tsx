@@ -57,7 +57,7 @@ export const AgeForm: FC<AgeFormProps> = ({
                 id="name"
                 type="text"
                 getRef={ref}
-                placeholder="Иван"
+                placeholder="Ivan"
                 aria-labelledby="nameDescription"
                 onChange={handleNameChange}
               />
