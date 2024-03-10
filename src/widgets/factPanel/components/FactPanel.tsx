@@ -17,7 +17,7 @@ import { useFactPanel } from '../model/useFactPanel';
 export const FactPanel: FC = () => {
   const { viewWidth } = useAdaptivityConditionalRender();
 
-  const { getFact, isError, isFetching } = useFactPanel();
+  const { getFact, isError, isLoading } = useFactPanel();
 
   return (
     <View activePanel="fact">
@@ -37,7 +37,7 @@ export const FactPanel: FC = () => {
           <Separator />
           <FactForm
             onSubmit={getFact}
-            isDisabled={isFetching}
+            isDisabled={isLoading}
             isError={isError}
           />
         </Group>

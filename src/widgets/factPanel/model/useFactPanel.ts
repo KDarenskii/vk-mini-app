@@ -1,24 +1,35 @@
-import { useState } from 'react';
-
-import { useQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
 
 import { FactService } from 'entities/fact';
 
-export const useFactPanel = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+import { queryClient } from 'shared/config';
 
-  const { refetch, isFetching, isError } = useQuery({
-    queryKey: ['fact'],
-    queryFn: FactService.get,
-    select: (data) => data.data,
-    enabled: isSubmitted,
-  });
+export const useFactPanel = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const getFact = async () => {
-    setIsSubmitted(true);
-    const fetchedFact = await refetch();
-    return fetchedFact.data;
+    setIsError(false);
+    setIsLoading(true);
+
+    try {
+      const { data } = await queryClient.fetchQuery({
+        queryKey: ['fact'],
+        queryFn: ({ signal }) => FactService.get({ signal }),
+      });
+      return data;
+    } catch (error) {
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  return { getFact, isFetching, isError };
+  useEffect(() => {
+    return () => {
+      queryClient.cancelQueries({ queryKey: ['fact'] });
+    };
+  }, []);
+
+  return { getFact, isLoading, isError };
 };
