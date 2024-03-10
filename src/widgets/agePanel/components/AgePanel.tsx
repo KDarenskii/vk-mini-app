@@ -52,7 +52,7 @@ export const AgePanel: FC = () => {
           )}
           <AgeForm
             onSubmit={getAgeByName}
-            onNameChange={(name: string) => debouncedGetAge({ name })}
+            onNameChange={debouncedGetAge}
             age={age}
             isLoading={isLoading}
           />

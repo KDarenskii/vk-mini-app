@@ -18,6 +18,8 @@ export const useAgePanel = () => {
     setIsLoading(true);
     setError(false);
     setCurrentFetchingName(name);
+    cancelCallback();
+
     try {
       const { data } = await queryClient.fetchQuery({
         queryKey: ['age', name],
@@ -34,9 +36,8 @@ export const useAgePanel = () => {
     }
   };
 
-  const debouncedGetAge = useDebounceCallback<{ name: string }>(({ name }) => {
-    getAgeByName(name);
-  }, 3000);
+  const { debouncedCallback: debouncedGetAge, cancelCallback } =
+    useDebounceCallback((name: string) => getAgeByName(name), { delay: 3000 });
 
   useEffect(() => {
     return () => {
