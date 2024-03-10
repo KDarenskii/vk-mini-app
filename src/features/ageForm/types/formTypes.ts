@@ -1,4 +1,4 @@
-import { Age } from 'entities';
+import { Age } from 'entities/age';
 
 export interface AgeFormProps {
   isLoading?: boolean;
