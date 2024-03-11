@@ -13,13 +13,14 @@ export const AgeForm: FC<AgeFormProps> = ({
   onSubmit,
   age,
   isLoading,
+  cancelCallback,
   onNameChange,
 }) => {
   const {
     control,
     formState: { errors },
     handleSubmit: submitWrapper,
-  } = useAgeForm(onNameChange);
+  } = useAgeForm(onNameChange, cancelCallback);
 
   return (
     <form onSubmit={submitWrapper(({ name }) => onSubmit(name))}>
@@ -49,10 +50,7 @@ export const AgeForm: FC<AgeFormProps> = ({
           }}
         />
       </FormItem>
-      <AgeInfo
-        ageInfo={age}
-        isLoading={isLoading}
-      />
+      <AgeInfo ageInfo={age} isLoading={isLoading} />
       <FormItem>
         <Button type="submit" size="l" stretched>
           Узнать возраст

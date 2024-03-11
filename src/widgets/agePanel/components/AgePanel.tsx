@@ -21,8 +21,14 @@ import { useAgePanel } from '../model/useAgePanel';
 export const AgePanel: FC = () => {
   const { viewWidth } = useAdaptivityConditionalRender();
 
-  const { age, getAgeByName, isError, isLoading, debouncedGetAge } =
-    useAgePanel();
+  const {
+    age,
+    getAgeByName,
+    isError,
+    isLoading,
+    cancelCallback,
+    debouncedGetAge,
+  } = useAgePanel();
 
   return (
     <View activePanel="age">
@@ -61,6 +67,7 @@ export const AgePanel: FC = () => {
           <AgeForm
             onSubmit={getAgeByName}
             onNameChange={debouncedGetAge}
+            cancelCallback={cancelCallback}
             age={age}
             isLoading={isLoading}
           />

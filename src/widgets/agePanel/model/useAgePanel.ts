@@ -45,5 +45,12 @@ export const useAgePanel = () => {
     };
   }, [currentFetchingName]);
 
-  return { age, getAgeByName, debouncedGetAge, isError, isLoading };
+  return {
+    age,
+    getAgeByName,
+    debouncedGetAge,
+    cancelCallback,
+    isError,
+    isLoading,
+  };
 };

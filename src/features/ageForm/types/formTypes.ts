@@ -5,6 +5,7 @@ export interface AgeFormProps {
   age: Age | null;
   onSubmit: (name: string) => Promise<void>;
   onNameChange: (name: string) => void;
+  cancelCallback: () => void;
 }
 
 export interface AgeFormState {
