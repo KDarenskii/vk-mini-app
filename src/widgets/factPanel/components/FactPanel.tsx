@@ -2,6 +2,8 @@ import { FC } from 'react';
 
 import { FactForm } from 'features/factForm';
 
+import { ThemeButton } from 'shared/components';
+
 import {
   Group,
   Panel,
@@ -23,12 +25,18 @@ export const FactPanel: FC = () => {
     <View activePanel="fact">
       <Panel id="fact">
         {viewWidth.tabletMinus && (
-          <PanelHeader className={viewWidth.tabletMinus.className}>
+          <PanelHeader
+            className={viewWidth.tabletMinus.className}
+            after={<ThemeButton />}
+          >
             VK Mini App
           </PanelHeader>
         )}
         {viewWidth.tabletPlus && (
-          <PanelHeader className={viewWidth.tabletPlus.className} />
+          <PanelHeader
+            className={viewWidth.tabletPlus.className}
+            after={<ThemeButton />}
+          />
         )}
         <Group>
           <Placeholder header="А вы знали...?">
