@@ -49,7 +49,10 @@ export const AgeForm: FC<AgeFormProps> = ({
           }}
         />
       </FormItem>
-      {age && <AgeInfo age={age.age} name={age.name} isLoading={isLoading} />}
+      <AgeInfo
+        ageInfo={age}
+        isLoading={isLoading}
+      />
       <FormItem>
         <Button type="submit" size="l" stretched>
           Узнать возраст

@@ -1,14 +1,15 @@
 import { FC } from 'react';
 
+import { Age } from 'entities/age';
+
 import { FormItem, Paragraph } from '@vkontakte/vkui';
 
 interface AgeInfoProps {
-  age: number | null;
-  name: string;
+  ageInfo: Age | null;
   isLoading?: boolean;
 }
 
-export const AgeInfo: FC<AgeInfoProps> = ({ age, name, isLoading }) => {
+export const AgeInfo: FC<AgeInfoProps> = ({ ageInfo, isLoading }) => {
   if (isLoading) {
     return (
       <FormItem>
@@ -16,6 +17,10 @@ export const AgeInfo: FC<AgeInfoProps> = ({ age, name, isLoading }) => {
       </FormItem>
     );
   }
+
+  if (!ageInfo) return null;
+
+  const { age, name } = ageInfo;
 
   if (!age) {
     return (
