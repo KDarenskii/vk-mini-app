@@ -2,6 +2,8 @@ import { FC } from 'react';
 
 import { AgeForm } from 'features/ageForm';
 
+import { ThemeButton } from 'shared/components';
+
 import {
   Banner,
   Div,
@@ -26,12 +28,18 @@ export const AgePanel: FC = () => {
     <View activePanel="age">
       <Panel id="age">
         {viewWidth.tabletMinus && (
-          <PanelHeader className={viewWidth.tabletMinus.className}>
+          <PanelHeader
+            className={viewWidth.tabletMinus.className}
+            after={<ThemeButton />}
+          >
             VK Mini App
           </PanelHeader>
         )}
         {viewWidth.tabletPlus && (
-          <PanelHeader className={viewWidth.tabletPlus.className} />
+          <PanelHeader
+            className={viewWidth.tabletPlus.className}
+            after={<ThemeButton />}
+          />
         )}
         <Group>
           <Placeholder header="А сколько ему лет...?">
